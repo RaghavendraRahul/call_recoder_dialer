@@ -1,0 +1,84 @@
+
+class _ContactSearchDelegate extends SearchDelegate<String?> {
+  final ContactService _contactService = ContactService();
+
+  @override
+  ThemeData appBarTheme(BuildContext context) {
+    final theme = Theme.of(context);
+    return theme.copyWith(
+      inputDecorationTheme: InputDecorationTheme(
+        border: InputBorder.none,
+        hintStyle: TextStyle(color: theme.hintColor),
+      ),
+    );
+  }
+
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      if (query.isNotEmpty)
+        IconButton(
+          icon: const Icon(Icons.clear_rounded),
+          onPressed: () {
+            query = '';
+            showSuggestions(context);
+          },
+        ),
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back_rounded),
+      onPressed: () => close(context, null),
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return _buildList(context);
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return _buildList(context);
+  }
+
+  Widget _buildList(BuildContext context) {
+    final results = _contactService.searchContactsByNameOrNumber(query);
+
+    if (results.isEmpty && query.isNotEmpty) {
+      return Center(
+        child: Text(
+          'No contacts found',
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
+      );
+    }
+
+    return ListView.builder(
+      itemCount: results.length,
+      itemBuilder: (context, index) {
+        final contact = results[index];
+        final phone = contact.phones.isNotEmpty
+            ? contact.phones.first.number
+            : '';
+        return ListTile(
+          leading: CircleAvatar(
+            backgroundColor: Theme.of(context).primaryColor.withValues(alpha: 0.1),
+            child: Text(
+              contact.displayName.isNotEmpty ? contact.displayName[0] : '#',
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
+          ),
+          title: Text(contact.displayName),
+          subtitle: Text(phone),
+          onTap: () {
+            close(context, phone);
+          },
+        );
+      },
+    );
+  }
+}

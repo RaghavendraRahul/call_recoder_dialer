@@ -1,0 +1,56 @@
+﻿Running Gradle task 'assembleDebug'...                          
+flutter : e: file:///C:/flutter_apps
+/CRM_call_Recording/call_record/andr
+oid/app/src/main/kotlin/com/example/
+call_record/MainActivity.kt:189:14 
+Conflicting overloads:
+At line:1 char:37
++ ... r build apk --debug *>$null ; 
+flutter build apk --debug  2>&1 | 
+Out-F ...
++                                   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSp 
+   ecified: (e: file:///C:/f...tin  
+  g overloads::String) [], Remote   
+ Exception
+    + FullyQualifiedErrorId : Nativ 
+   eCommandError
+ 
+fun onKeyDown(keyCode: Int, event: 
+KeyEvent?): Boolean
+e: file:///C:/flutter_apps/CRM_call_
+Recording/call_record/android/app/sr
+c/main/kotlin/com/example/call_recor
+d/MainActivity.kt:420:14 
+Conflicting overloads:
+fun onKeyDown(keyCode: Int, event: 
+KeyEvent?): Boolean
+
+FAILURE: Build failed with an 
+exception.
+
+* What went wrong:
+Execution failed for task 
+':app:compileDebugKotlin'.
+> A failure occurred while 
+executing org.jetbrains.kotlin.compi
+lerRunner.GradleCompilerRunnerWithWo
+rkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for 
+more details
+
+* Try:
+> Run with --stacktrace option to 
+get the stack trace.
+> Run with --info or --debug option 
+to get more log output.
+> Run with --scan to get full 
+insights.
+> Get more help at 
+https://help.gradle.org.
+
+BUILD FAILED in 5s
+Running Gradle task 'assembleDebug'...                              6.0s
+Gradle task assembleDebug failed 
+with exit code 1

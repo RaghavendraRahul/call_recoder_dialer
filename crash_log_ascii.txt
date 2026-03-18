@@ -1,0 +1,466 @@
+--------- beginning of crash
+03-08 08:49:54.417  2212  2212 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 2212 (init), pid 2212 (init)
+03-08 08:49:54.468  2212  2212 F libc    : crash_dump helper failed to exec, or was killed
+03-08 08:49:57.308  5315  5315 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 5315 (init), pid 5315 (init)
+03-08 08:49:57.458  5315  5315 F libc    : crash_dump helper failed to exec, or was killed
+03-16 08:44:36.878 11221 22225 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 22225 (Core Thread), pid 11221 (m.spotify.music)
+03-16 08:44:42.170 30939 30939 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+03-16 08:44:42.170 30939 30939 F DEBUG   : Build fingerprint: 'POCO/garnetp_in/garnet:15/AQ3A.240912.001/OS2.0.207.0.VNRINXM:user/release-keys'
+03-16 08:44:42.170 30939 30939 F DEBUG   : Revision: '0'
+03-16 08:44:42.170 30939 30939 F DEBUG   : ABI: 'arm64'
+03-16 08:44:42.170 30939 30939 F DEBUG   : Timestamp: 2026-03-16 08:44:38.672933163+0530
+03-16 08:44:42.170 30939 30939 F DEBUG   : Process uptime: 127447s
+03-16 08:44:42.170 30939 30939 F DEBUG   : Cmdline: com.spotify.music
+03-16 08:44:42.170 30939 30939 F DEBUG   : pid: 11221, tid: 22225, name: Core Thread  >>> com.spotify.music <<<
+03-16 08:44:42.170 30939 30939 F DEBUG   : uid: 10281
+03-16 08:44:42.170 30939 30939 F DEBUG   : tagged_addr_ctrl: 0000000000000001 (PR_TAGGED_ADDR_ENABLE)
+03-16 08:44:42.170 30939 30939 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000000000000
+03-16 08:44:42.170 30939 30939 F DEBUG   : Cause: null pointer dereference
+03-16 08:44:42.170 30939 30939 F DEBUG   :     x0  0000000000000000  x1  000000005c000000  x2  0000007b66cae8d0  x3  00000079cbbf3ec0
+03-16 08:44:42.170 30939 30939 F DEBUG   :     x4  00000079cbbf3ec4  x5  00000079cbbf3ec8  x6  0000000000000001  x7  000000000202da78
+03-16 08:44:42.170 30939 30939 F DEBUG   :     x8  0000000000000000  x9  000000793aa53d20  x10 00000079d149a222  x11 0000007a6bb46bb8
+03-16 08:44:42.170 30939 30939 F DEBUG   :     x12 0000007a6bb46c18  x13 0000007a6bb46c78  x14 0000007a6bb46cf8  x15 00000000ffffff80
+03-16 08:44:42.170 30939 30939 F DEBUG   :     x16 0000000000000001  x17 000000005c000000  x18 00000079214f4000  x19 00000079cbbf3ec8
+03-16 08:44:42.170 30939 30939 F DEBUG   :     x20 00000079cbbf3ec4  x21 00000079cbbf3ec0  x22 00000079cbbf3ebc  x23 0000007ae6d024d0
+03-16 08:44:42.170 30939 30939 F DEBUG   :     x24 000000000000001e  x25 000000004e872bd8  x26 0000000004358148  x27 0000000004358238
+03-16 08:44:42.170 30939 30939 F DEBUG   :     x28 000000000455fbd8  x29 000000000455fc38
+03-16 08:44:42.170 30939 30939 F DEBUG   :     lr  000000793aa53d20  sp  00000079cbbf3dc0  pc  000000793aa53d2c  pst 0000000060001000
+03-16 08:44:42.170 30939 30939 F DEBUG   : 2 total frames
+03-16 08:44:42.170 30939 30939 F DEBUG   : backtrace:
+03-16 08:44:42.170 30939 30939 F DEBUG   :       #00 pc 000000000093bd2c  /data/app/~~E3kGx_as48sGF-5EDmES_w==/com.spotify.music-o-oPi3qxPFJMxLQlj95O-A==/split_config.arm64_v8a.apk (offset 0x2f8000) (BuildId: a941098471b76cd9)
+03-16 08:44:42.170 30939 30939 F DEBUG   :       #01 pc 000000000093bd1c  /data/app/~~E3kGx_as48sGF-5EDmES_w==/com.spotify.music-o-oPi3qxPFJMxLQlj95O-A==/split_config.arm64_v8a.apk (offset 0x2f8000) (BuildId: a941098471b76cd9)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: FATAL EXCEPTION: main
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: Process: com.example.call_record, PID: 27820
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{4aa1c58 27820:com.example.call_record/u0a376} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-17 17:36:50.351 27820 27820 E AndroidRuntime: 
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: FATAL EXCEPTION: main
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: Process: com.example.call_record, PID: 29596
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{d16eac3 29596:com.example.call_record/u0a376} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-17 18:03:05.920 29596 29596 E AndroidRuntime: 
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: FATAL EXCEPTION: main
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: Process: com.example.call_record, PID: 30078
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{47fddaa 30078:com.example.call_record/u0a376} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-17 18:03:47.194 30078 30078 E AndroidRuntime: 
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: FATAL EXCEPTION: main
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: Process: com.example.call_record, PID: 30259
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{92b6041 30259:com.example.call_record/u0a376} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-17 18:04:07.255 30259 30259 E AndroidRuntime: 
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: FATAL EXCEPTION: main
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: Process: com.example.call_record, PID: 24732
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{9bf86a4 24732:com.example.call_record/u0a377} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-17 18:29:15.216 24732 24732 E AndroidRuntime: 
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: FATAL EXCEPTION: main
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: Process: com.example.call_record, PID: 31499
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{372053d 31499:com.example.call_record/u0a377} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-17 18:34:30.978 31499 31499 E AndroidRuntime: 
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: FATAL EXCEPTION: main
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: Process: com.example.call_record, PID: 32554
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{e67a600 32554:com.example.call_record/u0a377} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-17 18:34:51.185 32554 32554 E AndroidRuntime: 
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: FATAL EXCEPTION: main
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: Process: com.example.call_record, PID: 16600
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{63c63ce 16600:com.example.call_record/u0a377} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-17 18:45:45.198 16600 16600 E AndroidRuntime: 
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: FATAL EXCEPTION: main
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: Process: com.example.call_record, PID: 3936
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{c64a867 3936:com.example.call_record/u0a400} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-18 10:30:24.298  3936  3936 E AndroidRuntime: 
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: FATAL EXCEPTION: main
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: Process: com.example.call_record, PID: 13458
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{c575986 13458:com.example.call_record/u0a400} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-18 10:36:53.299 13458 13458 E AndroidRuntime: 
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: FATAL EXCEPTION: main
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: Process: com.example.call_record, PID: 20831
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{d18b7e3 20831:com.example.call_record/u0a400} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-18 10:37:57.461 20831 20831 E AndroidRuntime: 
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: FATAL EXCEPTION: main
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: Process: com.example.call_record, PID: 28763
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{85ada93 28763:com.example.call_record/u0a400} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-18 10:45:32.531 28763 28763 E AndroidRuntime: 
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: FATAL EXCEPTION: main
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: Process: com.example.call_record, PID: 3140
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{f35f69d 3140:com.example.call_record/u0a400} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-18 10:45:48.767  3140  3140 E AndroidRuntime: 
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: FATAL EXCEPTION: main
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: Process: com.example.call_record, PID: 3142
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{701593b 3142:com.example.call_record/u0a400} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-18 10:46:10.771  3142  3142 E AndroidRuntime: 
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: FATAL EXCEPTION: main
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: Process: com.example.call_record, PID: 4665
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: java.lang.SecurityException: Starting FGS with type microphone callerApp=ProcessRecord{1eb3b7e 4665:com.example.call_record/u0a400} targetSDK=34 requires permissions: all of the permissions allOf=true [android.permission.FOREGROUND_SERVICE_MICROPHONE] any of the permissions allOf=false [android.permission.CAPTURE_AUDIO_HOTWORD, android.permission.CAPTURE_AUDIO_OUTPUT, android.permission.CAPTURE_MEDIA_OUTPUT, android.permission.CAPTURE_TUNER_AUDIO_INPUT, android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT, android.permission.RECORD_AUDIO]  and the app must be in the eligible state/exemptions to access the foreground only permission
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3255)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.os.Parcel.createException(Parcel.java:3239)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3222)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.os.Parcel.readException(Parcel.java:3164)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:7633)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.app.Service.startForeground(Service.java:863)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.updateNotification(CallRecordingService.kt:353)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at com.example.call_record.CallRecordingService.onCallAdded(CallRecordingService.kt:131)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.telecom.InCallService$2.onCallAdded(InCallService.java:507)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.telecom.Phone.fireCallAdded(Phone.java:457)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.telecom.Phone.internalAddCall(Phone.java:176)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.telecom.InCallService$1.handleMessage(InCallService.java:304)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9608)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at com.android.server.am.ActiveServices.validateForegroundServiceType(ActiveServices.java:3074)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundInnerLocked(ActiveServices.java:2758)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at com.android.server.am.ActiveServices.setServiceForegroundLocked(ActiveServices.java:1989)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at com.android.server.am.ActivityManagerService.setServiceForeground(ActivityManagerService.java:15151)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 	at android.app.IActivityManager$Stub.onTransact$setServiceForeground$(IActivityManager.java:13707)
+03-18 10:48:23.544  4665  4665 E AndroidRuntime: 
