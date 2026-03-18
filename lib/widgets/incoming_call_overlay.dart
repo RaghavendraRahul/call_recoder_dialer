@@ -34,10 +34,10 @@ class IncomingCallOverlay extends StatelessWidget {
                       end: Alignment.bottomRight,
                       colors: [
                         Color(0xFF0F172A), // Deep Slate
-                        Color(0xFF3B82F6), // Vibrant Blue
+                        Color(0xFF020617), // Midnight Blue
                         Color(0xFF1E1B4B), // Deep Indigo
                       ],
-                      stops: [0.0, 0.5, 1.0],
+                      stops: [0.0, 0.6, 1.0],
                     )
                   : null,
             ),

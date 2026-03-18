@@ -50,60 +50,68 @@ class CallRecordingService : InCallService() {
 
     fun startRecording(path: String): Boolean {
         if (isRecording) return false
-        
+
+        // Priority 1: VOICE_RECOGNITION — explicitly benefits from Accessibility Service
+        // concurrent mic capture exemption (Android 10+). This is the only source that
+        // reliably records both sides of a call without root on modern Android.
         try {
             recorder = android.media.MediaRecorder().apply {
-                setAudioSource(android.media.MediaRecorder.AudioSource.VOICE_COMMUNICATION) // Best for Android 10+ if unfiltered
+                setAudioSource(android.media.MediaRecorder.AudioSource.VOICE_RECOGNITION)
                 setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
                 setAudioEncoder(android.media.MediaRecorder.AudioEncoder.AAC)
+                setAudioSamplingRate(44100)
+                setAudioEncodingBitRate(128000)
                 setOutputFile(path)
                 prepare()
                 start()
             }
             isRecording = true
-            android.util.Log.i("CallRecordingService", "Native recording started at: $path")
+            android.util.Log.i("CallRecordingService", "Recording started with VOICE_RECOGNITION (Accessibility) at: $path")
             return true
-        } catch (e: Exception) {
-            android.util.Log.w("CallRecordingService", "VOICE_COMMUNICATION failed, falling back to VOICE_RECOGNITION via Accessibility exemption", e)
+        } catch (e1: Exception) {
+            android.util.Log.w("CallRecordingService", "VOICE_RECOGNITION failed, trying VOICE_COMMUNICATION", e1)
             releaseRecorder()
-            
-            try {
-                // Fallback 1: Utilize Accessibility Service exemption for concurrent capture (Android 11+)
-                recorder = android.media.MediaRecorder().apply {
-                    setAudioSource(android.media.MediaRecorder.AudioSource.VOICE_RECOGNITION)
-                    setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
-                    setAudioEncoder(android.media.MediaRecorder.AudioEncoder.AAC)
-                    setOutputFile(path)
-                    prepare()
-                    start()
-                }
-                isRecording = true
-                android.util.Log.i("CallRecordingService", "Native recording started with VOICE_RECOGNITION (Accessibility) fallback at: $path")
-                return true
-            } catch (fallbackError1: Exception) {
-                android.util.Log.w("CallRecordingService", "VOICE_RECOGNITION failed, falling back to MIC", fallbackError1)
-                releaseRecorder()
-                
-                try {
-                    // Fallback 2: For older devices (Android 9/10) that might block VOICE_COMMUNICATION
-                    recorder = android.media.MediaRecorder().apply {
-                        setAudioSource(android.media.MediaRecorder.AudioSource.MIC)
-                        setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
-                        setAudioEncoder(android.media.MediaRecorder.AudioEncoder.AAC)
-                        setOutputFile(path)
-                        prepare()
-                        start()
-                    }
-                    isRecording = true
-                    android.util.Log.i("CallRecordingService", "Native recording started with MIC fallback at: $path")
-                    return true
-                } catch (fallbackError2: Exception) {
-                    android.util.Log.e("CallRecordingService", "Native recording failed entirely", fallbackError2)
-                    fallbackError2.printStackTrace()
-                    releaseRecorder()
-                    return false
-                }
+        }
+
+        // Priority 2: VOICE_COMMUNICATION — works on some OEMs / older Android versions
+        try {
+            recorder = android.media.MediaRecorder().apply {
+                setAudioSource(android.media.MediaRecorder.AudioSource.VOICE_COMMUNICATION)
+                setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
+                setAudioEncoder(android.media.MediaRecorder.AudioEncoder.AAC)
+                setAudioSamplingRate(44100)
+                setAudioEncodingBitRate(128000)
+                setOutputFile(path)
+                prepare()
+                start()
             }
+            isRecording = true
+            android.util.Log.i("CallRecordingService", "Recording started with VOICE_COMMUNICATION at: $path")
+            return true
+        } catch (e2: Exception) {
+            android.util.Log.w("CallRecordingService", "VOICE_COMMUNICATION failed, trying MIC", e2)
+            releaseRecorder()
+        }
+
+        // Priority 3: MIC — last resort, only captures local side
+        try {
+            recorder = android.media.MediaRecorder().apply {
+                setAudioSource(android.media.MediaRecorder.AudioSource.MIC)
+                setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
+                setAudioEncoder(android.media.MediaRecorder.AudioEncoder.AAC)
+                setAudioSamplingRate(44100)
+                setAudioEncodingBitRate(128000)
+                setOutputFile(path)
+                prepare()
+                start()
+            }
+            isRecording = true
+            android.util.Log.i("CallRecordingService", "Recording started with MIC (local-side only) at: $path")
+            return true
+        } catch (e3: Exception) {
+            android.util.Log.e("CallRecordingService", "All audio sources failed — recording not possible", e3)
+            releaseRecorder()
+            return false
         }
     }
 

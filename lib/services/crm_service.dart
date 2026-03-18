@@ -15,6 +15,7 @@ class CRMService {
   // For Android Emulator to access host's localhost, we MUST use 10.0.2.2
   // If you run on a real device, change this to your computer's local Wi-Fi IP (e.g., 192.168.x.x)
   static const String _baseUrl = 'http://192.168.18.29:8000';
+  static String get baseUrl => _baseUrl;
   static const String _uploadEndpoint = '/api/call-logs/';
   static const String _historyEndpoint = '/api/client-call-history/';
 
@@ -264,6 +265,55 @@ class CRMService {
     } catch (e) {
       print('Network Error fetching call history: $e');
       return [];
+    }
+  }
+
+  /// Permanently deletes a call log from the backend by its ID.
+  Future<bool> deleteCallLog(int id) async {
+    try {
+      final uri = Uri.parse('$_baseUrl$_uploadEndpoint$id/');
+      final response = await http.delete(
+        uri,
+        headers: {
+          'Authorization': 'Bearer $_apiKey',
+          'Accept': 'application/json',
+        },
+      ).timeout(const Duration(seconds: 30));
+
+      if (response.statusCode == 204 || response.statusCode == 200) {
+        print('Call log $id deleted successfully.');
+        return true;
+      } else {
+        print('Failed to delete call log $id: ${response.statusCode} - ${response.body}');
+        return false;
+      }
+    } catch (e) {
+      print('Error deleting call log $id: $e');
+      return false;
+    }
+  }
+
+  /// Updates the `keep_recording` flag for a call log via PATCH.
+  Future<bool> updateKeepRecording(int id, bool keep) async {
+    try {
+      final uri = Uri.parse('$_baseUrl$_uploadEndpoint$id/');
+      final request = http.MultipartRequest('PATCH', uri);
+      request.headers['Authorization'] = 'Bearer $_apiKey';
+      request.fields['keep_recording'] = keep ? 'true' : 'false';
+
+      final streamedResponse = await request.send().timeout(const Duration(seconds: 30));
+      final response = await http.Response.fromStream(streamedResponse);
+
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        print('Call log $id keep_recording updated to $keep.');
+        return true;
+      } else {
+        print('Failed to update keep_recording for $id: ${response.statusCode} - ${response.body}');
+        return false;
+      }
+    } catch (e) {
+      print('Error updating keep_recording for $id: $e');
+      return false;
     }
   }
 }

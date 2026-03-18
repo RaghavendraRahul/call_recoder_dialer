@@ -745,206 +745,214 @@ class _DialerScreenState extends State<DialerScreen>
                     Expanded(
                       child: SafeArea( // Keep within notches
                         bottom: false, // scaffold handles bottom
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            // Flexible spacer so the numpad stays at the bottom natively,
-                            // but can squish upwards if the screen is short.
-                            Expanded(child: SizedBox(height: 16)),
-
-                            // Matched Contact Name Display
-                            if (_matchedContactName != null)
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 8),
-                                child: FadeInSlide(
-                                  duration: const Duration(milliseconds: 200),
-                                  child: Text(
-                                    _matchedContactName!,
-                                    style: theme.textTheme.headlineSmall?.copyWith(
-                                      fontWeight: FontWeight.w700,
-                                      color: theme.colorScheme.primary,
-                                      letterSpacing: 0.5,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            return SingleChildScrollView(
+                              reverse: true, // Start from the bottom
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: constraints.maxHeight,
                                 ),
-                              ),
-
-                            // Suggestions List (Only shows if typing)
-                            if (_suggestions.isNotEmpty)
-                              Container(
-                                constraints: const BoxConstraints(maxHeight: 120), // Flexible limit height
-                                margin: const EdgeInsets.only(bottom: 4),
-                                child: ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: _suggestions.length,
-                                  itemBuilder: (context, index) {
-                                    final contact = _suggestions[index];
-                                    final phone = contact.phones.isNotEmpty ? contact.phones.first.number : '';
-                                    return ListTile(
-                                      dense: true,
-                                      visualDensity: VisualDensity.compact,
-                                      leading: CircleAvatar(
-                                        radius: 16,
-                                        backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.1),
-                                        child: Text(
-                                          (contact.displayName ?? '').isNotEmpty
-                                              ? String.fromCharCode((contact.displayName ?? '').runes.first).toUpperCase()
-                                              : '#',
-                                          style: TextStyle(color: theme.colorScheme.primary, fontSize: 13),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    // Matched Contact Name Display
+                                    if (_matchedContactName != null)
+                                      Padding(
+                                        padding: const EdgeInsets.only(bottom: 8),
+                                        child: FadeInSlide(
+                                          duration: const Duration(milliseconds: 200),
+                                          child: Text(
+                                            _matchedContactName!,
+                                            style: theme.textTheme.headlineSmall?.copyWith(
+                                              fontWeight: FontWeight.w700,
+                                              color: theme.colorScheme.primary,
+                                              letterSpacing: 0.5,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
                                         ),
                                       ),
-                                      title: Text(contact.displayName ?? '', style: const TextStyle(fontSize: 14)),
-                                      subtitle: Text(phone, style: const TextStyle(fontSize: 12)),
-                                      onTap: () => _makeCall(number: phone),
-                                    );
-                                  },
-                                ),
-                              ),
 
-                            // Number input field
-                            FadeInSlide(
-                              duration: const Duration(milliseconds: 300),
-                              offset: -20,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                                child: TextField(
-                                  controller: _numberController,
-                                  readOnly: true,
-                                  showCursor: true,
-                                  enableInteractiveSelection: true,
-                                  autofocus: true,
-                                  textAlign: TextAlign.center,
-                                  cursorWidth: 2.0,
-                                  cursorRadius: const Radius.circular(2.0),
-                                  cursorColor: theme.colorScheme.primary, // Make sure cursor is visible on dark bg
-                                  style: TextStyle(
-                                    fontSize: 38, // Slightly reduced to fit better
-                                    letterSpacing: 2.0,
-                                    color: theme.textTheme.bodyLarge?.color,
-                                    fontWeight: FontWeight.w600,
-                                    fontFamily: 'Inter',
-                                  ),
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none, // Override the global focused border for dialer
-                                    enabledBorder: InputBorder.none,
-                                    fillColor: Colors.transparent, // Disable background fill
-                                    hintText: 'Enter number',
-                                    hintStyle: TextStyle(
-                                      fontSize: 24,
-                                      color: theme.textTheme.bodyLarge?.color?.withValues(alpha: 0.3),
-                                      fontWeight: FontWeight.w300,
-                                      letterSpacing: 0.5,
-                                    ),
-                                    contentPadding: const EdgeInsets.symmetric(vertical: 8),
-                                    suffixIcon: _numberController.text.isNotEmpty
-                                        ? BouncingButton(
-                                            onTap: () {
-                                              HapticFeedback.mediumImpact();
-                                              _clearDialer();
-                                            },
-                                            scaleFactor: 0.8,
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Icon(
-                                                Icons.cancel_rounded,
-                                                color: theme.textTheme.bodyLarge?.color?.withValues(alpha: 0.5),
-                                              ),
-                                            ),
-                                          )
-                                        : null,
-                                  ),
-                                ),
-                              ),
-                            ),
-
-                            const SizedBox(height: 12),
-
-                            // Numpad
-                            FadeInSlide(
-                              duration: const Duration(milliseconds: 350),
-                              offset: 40,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 32.0), // Give more squish room
-                                child: Column(
-                                  children: [
-                                    _buildNumpadRow(['1', '2', '3']),
-                                    const SizedBox(height: 2),
-                                    _buildNumpadRow(['4', '5', '6']),
-                                    const SizedBox(height: 2),
-                                    _buildNumpadRow(['7', '8', '9']),
-                                    const SizedBox(height: 2),
-                                    _buildNumpadRow(['*', '0', '#']),
-                                  ],
-                                ),
-                              ),
-                            ),
-
-                            const SizedBox(height: 12),
-
-                            // Action Buttons
-                            FadeInSlide(
-                              duration: const Duration(milliseconds: 400),
-                              offset: 20,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 36.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    _buildActionButton(
-                                      icon: Icons.contacts,
-                                      onPressed: _openContacts,
-                                      color: isDark ? Colors.white.withValues(alpha: 0.1) : theme.colorScheme.primary.withValues(alpha: 0.1),
-                                      iconColor: theme.textTheme.bodyLarge?.color ?? Colors.black,
-                                    ),
-                                    RepaintBoundary(
-                                      child: BouncingButton(
-                                        onTap: () => _makeCall(),
-                                        scaleFactor: 0.9,
-                                        child: AnimatedOpacity(
-                                          duration: const Duration(milliseconds: 200),
-                                          opacity: _numberController.text.replaceAll(RegExp(r'\D'), '').length >= 3 ? 1.0 : 0.4, // Lower threshold for visual readiness
-                                          child: Container(
-                                            width: 64, // Shrunk slightly
-                                            height: 64,
-                                            decoration: BoxDecoration(
-                                              gradient: const LinearGradient(
-                                                colors: [Color(0xFF00E676), Color(0xFF00C853)],
-                                                begin: Alignment.topLeft,
-                                                end: Alignment.bottomRight,
-                                              ),
-                                              shape: BoxShape.circle,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: const Color(0xFF00C853).withValues(alpha: 0.5),
-                                                  blurRadius: 15, // Reduced shadow
-                                                  offset: const Offset(0, 6),
-                                                  spreadRadius: 1,
+                                    // Suggestions List (Only shows if typing)
+                                    if (_suggestions.isNotEmpty)
+                                      Container(
+                                        constraints: const BoxConstraints(maxHeight: 120), // Flexible limit height
+                                        margin: const EdgeInsets.only(bottom: 4),
+                                        child: ListView.builder(
+                                          shrinkWrap: true,
+                                          itemCount: _suggestions.length,
+                                          itemBuilder: (context, index) {
+                                            final contact = _suggestions[index];
+                                            final phone = contact.phones.isNotEmpty ? contact.phones.first.number : '';
+                                            return ListTile(
+                                              dense: true,
+                                              visualDensity: VisualDensity.compact,
+                                              leading: CircleAvatar(
+                                                radius: 16,
+                                                backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.1),
+                                                child: Text(
+                                                  (contact.displayName ?? '').isNotEmpty
+                                                      ? String.fromCharCode((contact.displayName ?? '').runes.first).toUpperCase()
+                                                      : '#',
+                                                  style: TextStyle(color: theme.colorScheme.primary, fontSize: 13),
                                                 ),
-                                              ],
+                                              ),
+                                              title: Text(contact.displayName ?? '', style: const TextStyle(fontSize: 14)),
+                                              subtitle: Text(phone, style: const TextStyle(fontSize: 12)),
+                                              onTap: () => _makeCall(number: phone),
+                                            );
+                                          },
+                                        ),
+                                      ),
+
+                                    // Number input field
+                                    FadeInSlide(
+                                      duration: const Duration(milliseconds: 300),
+                                      offset: -20,
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                                        child: TextField(
+                                          controller: _numberController,
+                                          readOnly: true,
+                                          showCursor: true,
+                                          enableInteractiveSelection: true,
+                                          autofocus: true,
+                                          textAlign: TextAlign.center,
+                                          cursorWidth: 2.0,
+                                          cursorRadius: const Radius.circular(2.0),
+                                          cursorColor: theme.colorScheme.primary, // Make sure cursor is visible on dark bg
+                                          style: TextStyle(
+                                            fontSize: 38, // Slightly reduced to fit better
+                                            letterSpacing: 2.0,
+                                            color: theme.textTheme.bodyLarge?.color,
+                                            fontWeight: FontWeight.w600,
+                                            fontFamily: 'Inter',
+                                          ),
+                                          decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            focusedBorder: InputBorder.none, // Override the global focused border for dialer
+                                            enabledBorder: InputBorder.none,
+                                            fillColor: Colors.transparent, // Disable background fill
+                                            hintText: 'Enter number',
+                                            hintStyle: TextStyle(
+                                              fontSize: 24,
+                                              color: theme.textTheme.bodyLarge?.color?.withValues(alpha: 0.3),
+                                              fontWeight: FontWeight.w300,
+                                              letterSpacing: 0.5,
                                             ),
-                                            child: const Icon(Icons.phone_rounded, size: 32, color: Colors.white),
+                                            contentPadding: const EdgeInsets.symmetric(vertical: 8),
+                                            suffixIcon: _numberController.text.isNotEmpty
+                                                ? BouncingButton(
+                                                    onTap: () {
+                                                      HapticFeedback.mediumImpact();
+                                                      _clearDialer();
+                                                    },
+                                                    scaleFactor: 0.8,
+                                                    child: Padding(
+                                                      padding: const EdgeInsets.all(8.0),
+                                                      child: Icon(
+                                                        Icons.cancel_rounded,
+                                                        color: theme.textTheme.bodyLarge?.color?.withValues(alpha: 0.5),
+                                                      ),
+                                                    ),
+                                                  )
+                                                : null,
                                           ),
                                         ),
                                       ),
                                     ),
-                                    _buildActionButton(
-                                      icon: Icons.backspace_rounded,
-                                      onPressed: _onBackspace,
-                                      onLongPress: _clearDialer,
-                                      color: isDark ? Colors.white.withValues(alpha: 0.1) : theme.colorScheme.error.withValues(alpha: 0.1),
-                                      iconColor: theme.textTheme.bodyLarge?.color?.withValues(alpha: 0.6) ?? Colors.black54,
+
+                                    const SizedBox(height: 12),
+
+                                    // Numpad taking proportional size
+                                    FadeInSlide(
+                                      duration: const Duration(milliseconds: 350),
+                                      offset: 40,
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 32.0), // Give more squish room
+                                        child: Column(
+                                          children: [
+                                            _buildNumpadRow(['1', '2', '3']),
+                                            const SizedBox(height: 4),
+                                            _buildNumpadRow(['4', '5', '6']),
+                                            const SizedBox(height: 4),
+                                            _buildNumpadRow(['7', '8', '9']),
+                                            const SizedBox(height: 4),
+                                            _buildNumpadRow(['*', '0', '#']),
+                                          ],
+                                        ),
+                                      ),
                                     ),
+
+                                    const SizedBox(height: 16),
+
+                                    // Action Buttons
+                                    FadeInSlide(
+                                      duration: const Duration(milliseconds: 400),
+                                      offset: 20,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 36.0),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            _buildActionButton(
+                                              icon: Icons.contacts,
+                                              onPressed: _openContacts,
+                                              color: isDark ? Colors.white.withValues(alpha: 0.1) : theme.colorScheme.primary.withValues(alpha: 0.1),
+                                              iconColor: theme.textTheme.bodyLarge?.color ?? Colors.black,
+                                            ),
+                                            RepaintBoundary(
+                                              child: BouncingButton(
+                                                onTap: () => _makeCall(),
+                                                scaleFactor: 0.9,
+                                                child: AnimatedOpacity(
+                                                  duration: const Duration(milliseconds: 200),
+                                                  opacity: _numberController.text.replaceAll(RegExp(r'\D'), '').length >= 3 ? 1.0 : 0.4, // Lower threshold for visual readiness
+                                                  child: Container(
+                                                    width: 64, // Shrunk slightly
+                                                    height: 64,
+                                                    decoration: BoxDecoration(
+                                                      gradient: const LinearGradient(
+                                                        colors: [Color(0xFF00E676), Color(0xFF00C853)],
+                                                        begin: Alignment.topLeft,
+                                                        end: Alignment.bottomRight,
+                                                      ),
+                                                      shape: BoxShape.circle,
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          color: const Color(0xFF00C853).withValues(alpha: 0.5),
+                                                          blurRadius: 15, // Reduced shadow
+                                                          offset: const Offset(0, 6),
+                                                          spreadRadius: 1,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    child: const Icon(Icons.phone_rounded, size: 32, color: Colors.white),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            _buildActionButton(
+                                              icon: Icons.backspace_rounded,
+                                              onPressed: _onBackspace,
+                                              onLongPress: _clearDialer,
+                                              color: isDark ? Colors.white.withValues(alpha: 0.1) : theme.colorScheme.error.withValues(alpha: 0.1),
+                                              iconColor: theme.textTheme.bodyLarge?.color?.withValues(alpha: 0.6) ?? Colors.black54,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    
+                                    const SizedBox(height: 16), // Bottom pad before nav bar
                                   ],
                                 ),
                               ),
-                            ),
-                            
-                            const SizedBox(height: 16), // Bottom pad before nav bar
-                          ],
+                            );
+                          },
                         ),
                       ),
                     ),

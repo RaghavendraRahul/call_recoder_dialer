@@ -384,11 +384,15 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           if (!isCurrentRoute('/incoming')) {
              try {
                MyApp.navigatorKey.currentState?.push(
-                    MaterialPageRoute(
-                      settings: const RouteSettings(name: '/incoming'),
-                      builder: (context) => const IncomingCallScreen(),
-                    ),
-                  );
+                 PageRouteBuilder(
+                   settings: const RouteSettings(name: '/incoming'),
+                   pageBuilder: (context, animation, secondaryAnimation) => const IncomingCallScreen(),
+                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                     return FadeTransition(opacity: animation, child: child);
+                   },
+                   transitionDuration: const Duration(milliseconds: 300),
+                 ),
+               );
             } catch (e) {
               print('Error pushing incoming call screen: $e');
             }
@@ -413,11 +417,15 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                    MyApp.navigatorKey.currentState?.pop();
                }
                MyApp.navigatorKey.currentState?.push(
-                    MaterialPageRoute(
-                      settings: const RouteSettings(name: '/active'),
-                      builder: (context) => const ActiveCallScreen(),
-                    ),
-                  );
+                 PageRouteBuilder(
+                   settings: const RouteSettings(name: '/active'),
+                   pageBuilder: (context, animation, secondaryAnimation) => const ActiveCallScreen(),
+                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                     return FadeTransition(opacity: animation, child: child);
+                   },
+                   transitionDuration: const Duration(milliseconds: 300),
+                 ),
+               );
             } catch (e) {
               print('Error pushing active call screen: $e');
             }
